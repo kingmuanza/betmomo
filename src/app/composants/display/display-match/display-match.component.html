@@ -1,0 +1,38 @@
+<div class="match">
+    <small style="float: right;">
+        #{{match.journee}}
+    </small>
+    <div>
+        <small>
+            {{match.enchainement}}
+        </small>
+    </div>
+    <div class="row">
+        <div class="cell-5">
+            <div class="equipe domicile">
+                {{match.domicile.nom}}
+            </div>
+        </div>
+        <div class="cell-1">
+            <div class="score domicile">
+                {{match.domicileScore}}
+            </div>
+            <div class="score-mi domicile">
+                {{match.domicileButsMiTemps}}
+            </div>
+        </div>
+        <div class="cell-1">
+            <div class="score exterieur">
+                {{match.exterieurScore}}
+            </div>
+            <div class="score-mi domicile">
+                {{match.exterieurButsMiTemps}}
+            </div>
+        </div>
+        <div class="cell-5">
+            <div class="equipe exterieur">
+                {{match.exterieur.nom}}
+            </div>
+        </div>
+    </div>
+</div>

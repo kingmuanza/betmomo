@@ -1,0 +1,28 @@
+<div class="page">
+    <div class="titre">
+        Compétitions
+    </div>
+    <div *ngIf="championnat" class="sous-titre">
+        {{championnat.nom}}
+    </div>
+    <div *ngIf="saison" class="sous-titre">
+        Saison {{saison.nom}}
+    </div>
+    <div class="competitions">
+        <div class="row">
+            <div class="col-lg-3" *ngFor="let competition of competitions; let i=index">
+                <div>
+                    <app-display-competition [competition]="competition"></app-display-competition>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="competition">
+                <a (click)="nouveau()">
+                    Créer une nouvelle competition
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>

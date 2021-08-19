@@ -1,0 +1,8 @@
+<div *ngIf="competitionEdition" class="competition">
+    <div *ngIf="competitionEdition.competition" class="competition-nom">
+        {{competitionEdition.competition.nom}}
+    </div>
+    <div *ngIf="competitionEdition.saison" class="competition-id">
+        {{competitionEdition.saison.nom}}
+    </div>
+</div>

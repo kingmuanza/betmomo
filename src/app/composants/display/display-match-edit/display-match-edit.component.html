@@ -1,0 +1,59 @@
+<div class="match">
+    <div class="row formulaire">
+        <div class="cell-lg-6">
+            <div class="champ">
+                <div class="row">
+                    <div class="cell-8">
+                        <select [(ngModel)]="match.domicile" data-role="select">
+                            <option [ngValue]="equipe" *ngFor="let equipe of competitionEdition.equipes">
+                                {{equipe.nom}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="cell-4">
+                        <div class="but">
+                            {{domicileScore}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="champ">
+                <input data-role="input" [(ngModel)]="domicileButs" (change)="updateDomicileButs()"  data-prepend="Buts">
+            </div>
+        </div>
+        <div class="cell-lg-6">
+            <div class="champ">
+                <div class="row">
+                    <div class="cell-4">
+                        <div class="but">
+                            {{exterieurScore}}
+                        </div>
+                    </div>
+                    <div class="cell-8">
+                        <select [(ngModel)]="match.exterieur" data-role="select">
+                            <option [ngValue]="equipe" *ngFor="let equipe of competitionEdition.equipes">
+                                {{equipe.nom}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="champ">
+                <input data-role="input" [(ngModel)]="exterieurButs" (change)="updateExterieurButs()"   data-prepend="Buts">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cell-lg-4">
+            <div class="champ">
+                <input data-role="input" [(ngModel)]="match.journee" type="number" data-prepend="Journée">
+            </div>
+        </div>
+        <div class="cell-lg-4">
+            <button (click)="save()">
+                Terminer
+            </button>
+        </div>
+    </div>
+
+</div>

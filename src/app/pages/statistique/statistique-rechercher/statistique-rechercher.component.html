@@ -1,0 +1,55 @@
+<div class="page">
+    <div class="titre">
+        Statistiques
+    </div>
+    <div class="sous-titre">
+        Rechercher une information
+    </div>
+    <div class="corps">
+        <div class="formulaire">
+            <div class="row">
+                <div class="cell-lg-4">
+                    <input [(ngModel)]="enchainement" data-prepend="Enchainement" data-role="input">
+                </div>
+                <div class="cell-lg-2">
+                    <button (click)="rechercher()" class="button" style="width: 100%;">
+                        Rechercher
+                    </button>
+                </div>
+                <div class="cell-lg-4">
+                    <input [(ngModel)]="score" data-prepend="Score" data-role="input">
+                </div>
+                <div class="cell-lg-2">
+                    <button (click)="rechercherScore()" class="button" style="width: 100%;">
+                        Rechercher
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="corps">
+        <app-display-prevision [matchs]="resultats"></app-display-prevision>
+    </div>
+    <div class="corps">
+        <app-display-stat [matchs]="resultats"></app-display-stat>
+    </div>
+    
+    <div class="corps">
+        <app-display-graphe [matchs]="resultats"></app-display-graphe>
+    </div>
+    
+    <div class="corps">
+        <div class="row">
+            <div *ngFor="let match of resultats" class="cell-lg-4 cell-6">
+                <div >
+                    <app-display-match [match]="match">
+
+                    </app-display-match>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

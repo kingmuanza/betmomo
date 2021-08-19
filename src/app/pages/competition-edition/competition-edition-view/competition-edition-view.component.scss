@@ -1,0 +1,23 @@
+.equipe {
+    margin-right: 5px;
+    padding: 5px;
+    font-size: 13px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ddd;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.equipes {
+    &-competition {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    &-resultats {
+        margin-top: 50px;
+    }
+    &-enregistrer {
+        margin-top: 50px;
+    }
+}

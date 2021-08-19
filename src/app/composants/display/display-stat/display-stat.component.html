@@ -1,0 +1,389 @@
+<div class="row">
+    <div class="cell-2">
+        <div class="stat bg-magenta fg-white">
+            <div class="stat-titre">
+                Nombre
+            </div>
+            <div class="stat-valeur">
+                {{matchs.length}}
+                <div class="unite">
+                    matchs
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div class="stat bg-red fg-white">
+            <div class="stat-titre">
+                Total
+            </div>
+            <div class="stat-valeur">
+                {{total}}
+                <div class="unite">
+                    Buts
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div class="stat bg-red fg-white">
+            <div class="stat-titre">
+                Buts par match
+            </div>
+            <div class="stat-valeur">
+                {{total / matchs.length | number: '1.2-2'}}
+                <div class="unite">
+                    Buts
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-3">
+        <div class="stat bg-orange fg-white">
+            <div class="stat-titre">
+                Buts à domicile
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{domiciles}}
+                        <div class="unite">
+                            Buts
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{domiciles * 100 / total | number: '1.2-2'}}%
+                        <div class="unite">
+                            Pourcentage
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-3">
+        <div class="stat bg-darkOrange fg-white">
+            <div class="stat-titre">
+                Buts à l'extérieur
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{exterieurs}}
+                        <div class="unite">
+                            Buts
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{exterieurs * 100 / total | number: '1.2-2'}}%
+                        <div class="unite">
+                            Pourcentage
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cell-6">
+        <div class="stat bg-blue fg-white">
+            <div class="stat-titre">
+                Buts en première mi-temps
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{premiereMitemps}}
+                        <div class="unite">
+                            Buts
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{premiereMitemps * 100 / total | number: '1.2-2'}}%
+                        <div class="unite">
+                            Pourcentage
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-6">
+        <div class="stat fg-white" style="background-color: green;">
+            <div class="stat-titre">
+                Buts en seconde mi-temps
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{secondeMitemps}}
+                        <div class="unite">
+                            Buts
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{secondeMitemps * 100 / total | number: '1.2-2'}}%
+                        <div class="unite">
+                            Pourcentage
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cell-3">
+        <div class="stat bg-darkBlue fg-white">
+            <div class="stat-titre">
+               Buts à domicile en première mi-temps
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{premiereMitempsDomicile}}
+                        <div class="unite">
+                            Buts
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{premiereMitempsDomicile * 100 / premiereMitemps | number: '1.2-2'}}%
+                        <div class="unite">
+                            buts en 1ière mi-temps
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-3">
+        <div class="stat bg-teal fg-white">
+            <div class="stat-titre">
+                Buts à l'extérieur en première mi-temps
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{premiereMitempsExterieur}}
+                        <div class="unite">
+                            Buts
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{premiereMitempsExterieur * 100 / premiereMitemps | number: '1.2-2'}}%
+                        <div class="unite">
+                            Buts en 1ière mi-temps
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cell-3">
+        <div class="stat bg-darkGreen fg-white">
+            <div class="stat-titre">
+                Buts à domicile en seconde mi-temps
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{secondeMitempsDomicile}}
+                        <div class="unite">
+                            Buts
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{secondeMitempsDomicile * 100 / secondeMitemps | number: '1.2-2'}}%
+                        <div class="unite">
+                            buts en 2nde mi-temps
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-3">
+        <div class="stat bg-green fg-white">
+            <div class="stat-titre">
+                Seconde Mi-temps Exterieur
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{secondeMitempsExterieur}}
+                        <div class="unite">
+                            Buts
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{secondeMitempsExterieur * 100 / secondeMitemps | number: '1.2-2'}}%
+                        <div class="unite">
+                            buts en 2nde mi-temps
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-4">
+        <div class="stat bg-indigo fg-white">
+            <div class="stat-titre">
+                Les deux équipes marquent
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{deuxEquipesMarques}}
+                        <div class="unite">
+                            Matchs
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{deuxEquipesMarques * 100 / matchs.length | number: '1.2-2'}}%
+                        <div class="unite">
+                            de matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-4">
+        <div class="stat bg-indigo fg-white">
+            <div class="stat-titre">
+                Domicile marque au moins une fois
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{domicileMarque}}
+                        <div class="unite">
+                            Matchs
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{domicileMarque * 100 / matchs.length | number: '1.2-2'}}%
+                        <div class="unite">
+                            de matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-4">
+        <div class="stat bg-indigo fg-white">
+            <div class="stat-titre">
+                Exterieur marque au moins une fois
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{exterieurMarque}}
+                        <div class="unite">
+                            Matchs
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{exterieurMarque * 100 / matchs.length | number: '1.2-2'}}%
+                        <div class="unite">
+                            de matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-3">
+        <div class="stat bg-darkIndigo fg-white">
+            <div class="stat-titre">
+                Domicile marque en 1ière mi-temps
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{domicileMarquePremiereMitemps}}
+                        <div class="unite">
+                            Matchs
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{domicileMarquePremiereMitemps * 100 / domicileMarque | number: '1.2-2'}}%
+                        <div class="unite">
+                            matchs où domicile marque
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-3">
+        <div class="stat bg-darkIndigo fg-white">
+            <div class="stat-titre">
+                Extérieur marque en 1ière Mitemps
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{exterieurMarquePremiereMitemps}}
+                        <div class="unite">
+                            Matchs
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{exterieurMarquePremiereMitemps * 100 / exterieurMarque | number: '1.2-2'}}%
+                        <div class="unite">
+                            matchs où extérieur marque
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-3">
+        <div class="stat bg-darkIndigo fg-white">
+            <div class="stat-titre">
+                Domicile marque en 2nde mi-temps
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{domicileMarqueSecondeMitemps}}
+                        <div class="unite">
+                            Matchs
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{domicileMarqueSecondeMitemps * 100 / domicileMarque | number: '1.2-2'}}%
+                        <div class="unite">
+                            matchs où domicile marque
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-3">
+        <div class="stat bg-darkIndigo fg-white">
+            <div class="stat-titre">
+                Extérieur marque en 2nde mi-temps
+            </div>
+            <div class="stat-valeur">
+                <div class="row no-gap">
+                    <div class="cell-6" style="border-right: 1px solid white">
+                        {{exterieurMarqueSecondeMitemps}}
+                        <div class="unite">
+                            Matchs
+                        </div>
+                    </div>
+                    <div class="cell-6">
+                        {{exterieurMarqueSecondeMitemps * 100 / exterieurMarque | number: '1.2-2'}}%
+                        <div class="unite">
+                            matchs où extérieur marque
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

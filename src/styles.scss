@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+.page {
+    padding: 10vmin;
+
+    .titre {
+        font-size: 25px;
+        font-weight: bold;
+    }
+    .sous-titre {
+        font-size: 20px;
+    }
+
+    .corps {
+        margin-top: 20px;
+    }
+
+    .formulaire {
+        .champ {
+            margin-bottom: 8px;
+        }
+    }
+}

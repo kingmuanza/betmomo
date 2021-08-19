@@ -1,0 +1,30 @@
+<div class="page">
+    <div class="titre">
+        Création d'une compétition
+    </div>
+    <div class="sous-titre">
+        Informations utiles
+    </div>
+    <div *ngIf="competition" class="corps">
+        <div class="formulaire">
+            <div class="champ">
+                <input [(ngModel)]="competition.nom" data-role="input" data-prepend="Nom de la competition">
+            </div>  
+            <div class="champ">
+                <select [(ngModel)]="competition.idchampionnat" data-role="select" data-prepend="Championnat">
+                    <option [value]="champ.id" *ngFor="let champ of championnats">
+                        {{champ.nom}}
+                    </option>
+                </select>
+            </div>  
+            <div class="champ">
+                <input [(ngModel)]="competition.nombreEquipes" data-role="input" data-prepend="Nombre d'équipes">
+            </div>  
+            <div class="champ">
+                <button (click)="save()" class="button">
+                    Enregistrer
+                </button>
+            </div>  
+        </div>
+    </div>
+</div>

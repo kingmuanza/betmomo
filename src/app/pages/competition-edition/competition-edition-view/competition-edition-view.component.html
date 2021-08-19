@@ -1,0 +1,76 @@
+<div *ngIf="competitionEdition" class="page">
+    <div *ngIf="competitionEdition.competition" class="titre">
+        {{competitionEdition.competition.nom}}
+        <span style="float: right;">
+            {{matchs.length}} matchs
+        </span>
+    </div>
+    <div *ngIf="competitionEdition.saison" class="sous-titre">
+        {{competitionEdition.saison.nom}}
+    </div>
+    <div class="corps">
+        <app-display-stat [matchs]="matchs"></app-display-stat>
+    </div>
+    <div class="corps">
+
+        <div *ngIf="competitionEdition.equipes" class="equipes-competition">
+            <span *ngFor="let equipe of competitionEdition.equipes" class="equipe">
+                {{equipe.nom}}
+            </span>
+        </div>
+        <div *ngIf="!modifierEquipe">
+            <a class="fg-blue">Modifier les équipes</a>
+        </div>
+    </div>
+    <div *ngIf="modifierEquipe" class="corps">
+        <div class="equipes">
+            <div *ngIf="competitionEdition.competition && competitionEdition.equipes">
+                Liste des équipes :
+                {{equipes.length + competitionEdition.equipes.length}} sur
+                {{competitionEdition.competition.nombreEquipes}}
+            </div>
+            <div class="equipes-remplissage">
+                <textarea [(ngModel)]="equipesString" (change)="updateEquipes()" data-role="textarea">
+
+                </textarea>
+            </div>
+            <div class="equipes-resultats">
+                <span *ngFor="let equipe of equipes" class="equipe">
+                    {{equipe.nom}}
+                </span>
+            </div>
+            <div class="equipes-enregistrer">
+                <button (click)="enregistrerLesEquipes()" class="button bg-green fg-white">
+                    Enregistrer les équipes
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="corps">
+        <div class="row">
+            <div *ngFor="let match of matchs" class="cell-lg-4 cell-6">
+                <div >
+                    <app-display-match [match]="match">
+
+                    </app-display-match>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="competitionEdition.equipes" class="matchs">
+        <div class="matchs-titre">
+            Liste des matchs
+        </div>
+        <div class="matchs">
+            <app-display-match-edit (terminer)="terminer()" [competitionEdition]="competitionEdition">
+
+            </app-display-match-edit>
+        </div>
+    </div>
+</div>
+<div style="height: 50vh;">
+
+</div>

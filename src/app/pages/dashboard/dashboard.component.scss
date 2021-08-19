@@ -1,0 +1,38 @@
+.stat {
+    text-align: center;
+    padding: 20px;
+    padding-top: 15px;
+
+    &-titre {
+        margin-bottom: 5px;
+    }
+
+    &-valeur {
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 1.15;
+
+        .unite {
+            font-size: 14px;
+            font-weight: 100;
+        }
+    }
+}
+
+.firebase {
+    margin-top: 8px;
+    padding-top: 5px;
+    border-top: 1px solid #eee;
+
+    &-titre {
+        font-size: 0.8em;
+    }
+    &-buttons {
+        padding-top: 5px;
+        button {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    }
+
+}

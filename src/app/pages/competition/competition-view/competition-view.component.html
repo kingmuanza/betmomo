@@ -1,0 +1,27 @@
+<div class="page">
+    <div class="titre">
+        {{ competition ? competition.nom: 'Veuillez patienter...'}}
+    </div>
+    <div class="sous-titre">
+        Liste des éditions de la compétition
+    </div>
+    <div class="competitions">
+        <div class="row">
+            <div class="col-lg-3" *ngFor="let competitionEdition of competitionEditions; let i=index">
+                <div (click)="voir(competitionEdition)">
+                    <app-display-competition-edition [competitionEdition]="competitionEdition">
+
+                    </app-display-competition-edition>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="competition">
+                <a (click)="nouveau()">
+                    Créer une nouvelle édition de la competition
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>

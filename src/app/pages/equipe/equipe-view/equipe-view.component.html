@@ -1,0 +1,27 @@
+<div class="page">
+    <div class="titre">
+        {{equipe.nom}}
+    </div>
+    <div class="sous-titre">
+        Informations relatives
+    </div>
+    
+    <div class="corps">
+        <app-display-prevision [matchs]="matchs"></app-display-prevision>
+    </div>
+    <div class="corps">
+        <app-display-stat [matchs]="matchs"></app-display-stat>
+    </div>
+    <div class="corps">
+        <app-display-graphe [matchs]="matchs"></app-display-graphe>
+    </div>
+    
+    
+    <div class="corps">
+        <div class="row">
+            <div *ngFor="let match of matchs" class="cell-lg-3">
+                <app-display-match [match]="match"></app-display-match>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "betmomo-muanza": {
+      "hosting": {
+        "betmomo": [
+          "betmomo-muanza"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<div class="page">
+    <div class="titre">
+        Liste des équipes
+    </div>
+    <div class="sous-titre">
+        Liste des équipes enregistrées ici
+    </div>
+    <div class="sous-titre">
+        Mise à jour des equipes à partir des matchs... {{index}} sur {{matchs.length}}
+        <button (click)="update()" class="button" style="float: right;">
+            Mise à jour
+        </button>
+    </div>
+    <div class="corps">
+        <div class="row">
+            <div *ngFor="let equipe of equipes" class="cell-lg-3">
+                <div class="equipe" (click)="voirEquipe(equipe)">
+                    <app-display-equipe [equipe]="equipe">
+
+                    </app-display-equipe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

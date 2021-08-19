@@ -1,0 +1,506 @@
+<div class="row">
+    <div class="cell-3">
+        <div class="prevision bg-magenta fg-white">
+            <div class="prevision-titre">
+                Nombre
+            </div>
+            <div class="prevision-valeur">
+                {{matchs.length}}
+                <div class="unite">
+                    matchs
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-3">
+        <div class="prevision bg-blue fg-white">
+            <div class="prevision-titre">
+                Victoires à domicile
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{victoireDomicile}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{victoireDomicile * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-3">
+        <div class="prevision bg-dark fg-white">
+            <div class="prevision-titre">
+                Matchs nuls à domicile
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{nulDomicile}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{nulDomicile * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-3">
+        <div class="prevision bg-red fg-white">
+            <div class="prevision-titre">
+                Défaites à domicile
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{defaiteDomicile}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{defaiteDomicile * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus00,  'bg-orange': max > plus00}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Aucun but
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus00}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus00 * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus05,  'bg-orange': max > plus05}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 0.5 buts
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus05}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus05 * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus15,  'bg-orange': max > plus15}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 1.5 buts
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus15}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus15 * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus25,  'bg-orange': max > plus25}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 2.5 buts
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus25}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus25 * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus35,  'bg-orange': max > plus35}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 3.5 buts
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus35}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus35 * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus45,  'bg-orange': max > plus45}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 4.5 buts
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus45}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus45 * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus00domicile,  'bg-orange': max > plus00domicile}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Aucun but à domicile
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus00domicile}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus00domicile * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus05domicile,  'bg-orange': max > plus05domicile}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 0.5 buts à domicile
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus05domicile}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus05domicile * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus15domicile,  'bg-orange': max > plus15domicile}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 1.5 buts à domicile
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus15domicile}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus15domicile * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus25domicile,  'bg-orange': max > plus25domicile}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 2.5 buts à domicile
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus25domicile}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus25domicile * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus35domicile,  'bg-orange': max > plus35domicile}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 3.5 buts à domicile
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus35domicile}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus35domicile * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus45domicile,  'bg-orange': max > plus45domicile}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 4.5 buts à domicile
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus45domicile}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus45domicile * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus00exterieur,  'bg-orange': max > plus00exterieur}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Aucun but à exterieur
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus00exterieur}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus00exterieur * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus05exterieur,  'bg-orange': max > plus05exterieur}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 0.5 buts à exterieur
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus05exterieur}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus05exterieur * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus15exterieur,  'bg-orange': max > plus15exterieur}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 1.5 buts à exterieur
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus15exterieur}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus15exterieur * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus25exterieur,  'bg-orange': max > plus25exterieur}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 2.5 buts à exterieur
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus25exterieur}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus25exterieur * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus35exterieur,  'bg-orange': max > plus35exterieur}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 3.5 buts à exterieur
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus35exterieur}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus35exterieur * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-2">
+        <div [ngClass]="{'bg-green': max <= plus45exterieur,  'bg-orange': max > plus45exterieur}" class="prevision fg-white">
+            <div class="prevision-titre">
+                Plus de 4.5 buts à exterieur
+            </div>
+            <div class="prevision-valeur">
+                <div class="row no-gap">
+                    <div class="cell-5" style="border-right: 1px solid white">
+                        {{plus45exterieur}}
+                        <div class="unite">
+                            matchs
+                        </div>
+                    </div>
+                    <div class="cell-7">
+                        {{plus45exterieur * 100 / matchs.length | number: '1.1-1'}}%
+                        <div class="unite">
+                            des matchs
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

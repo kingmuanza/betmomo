@@ -1,0 +1,31 @@
+<div class="page">
+    <div class="titre">
+        Création d'une édition d'une compétition
+    </div>
+    <div class="sous-titre">
+        Informations utiles
+    </div>
+    <div class="corps">
+        <div class="formulaire">
+            <div class="champ">
+                <select [(ngModel)]="idcompetition" data-role="select" data-prepend="Compétition">
+                    <option [value]="c.id" *ngFor="let c of competitions">
+                        {{c.nom}}
+                    </option>
+                </select>
+            </div>  
+            <div class="champ">
+                <select [(ngModel)]="idsaison" data-role="select" data-prepend="Saison">
+                    <option [value]="s.id" *ngFor="let s of saisons">
+                        {{s.nom}}
+                    </option>
+                </select>
+            </div>  
+            <div class="champ">
+                <button (click)="save()" class="button">
+                    Enregistrer
+                </button>
+            </div>  
+        </div>
+    </div>
+</div>
