@@ -46,6 +46,7 @@ import { StatistiqueRechercherComponent } from './pages/statistique/statistique-
 import { DisplayGrapheComponent } from './composants/display/display-graphe/display-graphe.component';
 import { DisplayMatchEditRawComponent } from './composants/display/display-match-edit-raw/display-match-edit-raw.component';
 import { DisplayEquipeComponent } from './composants/display/display-equipe/display-equipe.component';
+import { DisplayStatEquipeComponent } from './composants/display/display-stat-equipe/display-stat-equipe.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { DisplayEquipeComponent } from './composants/display/display-equipe/disp
     StatistiqueRechercherComponent,
     DisplayGrapheComponent,
     DisplayMatchEditRawComponent,
-    DisplayEquipeComponent
+    DisplayEquipeComponent,
+    DisplayStatEquipeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { But } from '../models/but.model';
+import { Equipe } from '../models/equipe.model';
 import { Match } from '../models/match.model';
 import { Stat } from '../models/stat.model';
 
@@ -219,6 +220,103 @@ export class StatistiqueService {
       premiersButsExterieur: premiersButsExterieur,
       derniersButsExterieur: derniersButsExterieur,
     };
+
+  }
+
+  getStatsEquipe(matchs: Array<Match>, equipe: Equipe) {
+    
+    const victoires = new Array<Match>();
+    const defaites = new Array<Match>();
+    const nuls = new Array<Match>();
+
+    const victoiresExterieurs = new Array<Match>();
+    const defaitesExterieurs = new Array<Match>();
+    const nulsExterieurs = new Array<Match>();
+
+    const victoiresDomiciles = new Array<Match>();
+    const defaitesDomiciles = new Array<Match>();
+    const nulsDomiciles = new Array<Match>();
+
+    const matchsDomiciles = new Array<Match>();
+    const matchsExterieurs = new Array<Match>();
+
+    let butsMarques = new Array<But>();
+    let butsEncaisses = new Array<But>();
+
+    const butsDomiciles = new Array<But>();
+    const butsExterieurs = new Array<But>();
+
+    const butsPremiereMiTemps = new Array<But>();
+    const butsSecondeMiTemps = new Array<But>();
+
+    const butsPremiereMiTempsDomiciles = new Array<But>();
+    const butsPremiereMiTempsExterieurs = new Array<But>();
+
+    const butsSecondeMiTempsDomiciles = new Array<But>();
+    const butsSecondeMiTempsExterieurs = new Array<But>();
+
+    matchs.forEach((match) => {
+      if (match.domicile.id === equipe.id) {
+        matchsDomiciles.push(match);
+        butsMarques = butsMarques.concat(match.domicileButs);
+        butsEncaisses = butsEncaisses.concat(match.exterieurButs);
+
+        if (match.domicileScore > match.exterieurScore) {
+          victoires.push(match);
+          victoiresDomiciles.push(match);
+        }
+        if (match.domicileScore < match.exterieurScore) {
+          defaites.push(match);
+          defaitesDomiciles.push(match);
+        }
+        if (match.domicileScore === match.exterieurScore) {
+          nuls.push(match);
+          nulsDomiciles.push(match);
+        }
+      }
+      if (match.exterieur.id === equipe.id) {
+        matchsExterieurs.push(match);
+        butsMarques = butsMarques.concat(match.exterieurButs);
+        butsEncaisses = butsEncaisses.concat(match.domicileButs);
+        if (match.domicileScore < match.exterieurScore) {
+          victoires.push(match);
+          victoiresExterieurs.push(match);
+        }
+        if (match.domicileScore > match.exterieurScore) {
+          defaites.push(match);
+          defaitesExterieurs.push(match);
+        }
+        if (match.domicileScore === match.exterieurScore) {
+          nuls.push(match);
+          nulsExterieurs.push(match);
+        }
+      }
+    });
+
+    return {
+      victoires: victoires,
+      defaites: defaites,
+      nuls: nuls,
+      victoiresExterieurs: victoiresExterieurs,
+      defaitesExterieurs: defaitesExterieurs,
+      nulsExterieurs: nulsExterieurs,
+      victoiresDomiciles: victoiresDomiciles,
+      defaitesDomiciles: defaitesDomiciles,
+      nulsDomiciles: nulsDomiciles,
+      matchsDomiciles: matchsDomiciles,
+      matchsExterieurs: matchsExterieurs,
+      butsMarques: butsMarques,
+      butsEncaisses: butsEncaisses,
+      
+      butsDomiciles: butsDomiciles,
+      butsExterieurs: butsExterieurs,
+      butsPremiereMiTemps: butsPremiereMiTemps,
+      butsSecondeMiTemps: butsSecondeMiTemps,
+      butsPremiereMiTempsDomiciles: butsPremiereMiTempsDomiciles,
+      butsPremiereMiTempsExterieurs: butsPremiereMiTempsExterieurs,
+      butsSecondeMiTempsDomiciles: butsSecondeMiTempsDomiciles,
+      butsSecondeMiTempsExterieurs: butsSecondeMiTempsExterieurs,
+    }
 
   }
 

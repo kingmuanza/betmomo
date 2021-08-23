@@ -1,0 +1,27 @@
+.stat {
+    text-align: center;
+    padding: 15px;
+    padding-top: 10px;
+
+    &-titre {
+        margin-bottom: 5px;
+        line-height: 1.15;
+    }
+
+    &-valeur {
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 1.15;
+
+        .unite {
+            font-size: 12px;
+            font-weight: 100;
+        }
+    }
+}
+
+.boutons {
+    button {
+        margin-right: 10px;
+    }
+} 

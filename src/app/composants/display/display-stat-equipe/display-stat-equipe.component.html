@@ -1,0 +1,288 @@
+<div class="boutons">
+    <button class="button primary" id="dropdown_toggle_1">
+        Voir les statistiques de matchs
+    </button>
+    <button class="button secondary" id="dropdown_toggle_2">
+        Voir les statistiques de buts
+    </button>
+</div>
+<div class="section-matchs">
+    <div data-role="dropdown" data-toggle-element="#dropdown_toggle_1">
+        <div class="row">
+
+            <div class="cell-4">
+                <div class="stat bg-green fg-white">
+                    <div class="stat-titre">
+                        Victoires
+                    </div>
+                    <div class="stat-valeur">
+                        <div class="row no-gap">
+                            <div class="cell-6" style="border-right: 1px solid white">
+                                {{resultats.victoires.length}}
+                                <div class="unite">
+                                    victoires
+                                </div>
+                            </div>
+                            <div class="cell-6">
+                                {{resultats.victoires.length * 100 / matchs.length| number: '1.2-2'}}%
+                                <div class="unite">
+                                    pourcentage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell-4">
+                <div class="stat bg-orange fg-white">
+                    <div class="stat-titre">
+                        Matchs nuls
+                    </div>
+                    <div class="stat-valeur">
+                        <div class="row no-gap">
+                            <div class="cell-6" style="border-right: 1px solid white">
+                                {{resultats.nuls.length}}
+                                <div class="unite">
+                                    nuls
+                                </div>
+                            </div>
+                            <div class="cell-6">
+                                {{resultats.nuls.length * 100 / matchs.length| number: '1.2-2'}}%
+                                <div class="unite">
+                                    pourcentage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell-4">
+                <div class="stat bg-red fg-white">
+                    <div class="stat-titre">
+                        Défaites
+                    </div>
+                    <div class="stat-valeur">
+                        <div class="row no-gap">
+                            <div class="cell-6" style="border-right: 1px solid white">
+                                {{resultats.defaites.length}}
+                                <div class="unite">
+                                    nuls
+                                </div>
+                            </div>
+                            <div class="cell-6">
+                                {{resultats.defaites.length * 100 / matchs.length| number: '1.2-2'}}%
+                                <div class="unite">
+                                    pourcentage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell-2">
+                <div class="stat bg-green fg-white">
+                    <div class="stat-titre">
+                        Victoires à domicile
+                    </div>
+                    <div class="stat-valeur">
+                        <div class="row no-gap">
+                            <div class="cell-6" style="border-right: 1px solid white">
+                                {{resultats.victoiresDomiciles.length}}
+                                <div class="unite">
+                                    victoires
+                                </div>
+                            </div>
+                            <div class="cell-6">
+                                {{resultats.victoiresDomiciles.length * 100 / resultats.victoires.length| number:
+                                '1.0-1'}}%
+                                <div class="unite">
+                                    pourcentage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell-2">
+                <div class="stat bg-green fg-white">
+                    <div class="stat-titre">
+                        Victoires à l'exterieur
+                    </div>
+                    <div class="stat-valeur">
+                        <div class="row no-gap">
+                            <div class="cell-6" style="border-right: 1px solid white">
+                                {{resultats.victoiresExterieurs.length}}
+                                <div class="unite">
+                                    victoires
+                                </div>
+                            </div>
+                            <div class="cell-6">
+                                {{resultats.victoiresExterieurs.length * 100 / resultats.victoires.length| number:
+                                '1.0-1'}}%
+                                <div class="unite">
+                                    pourcentage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell-2">
+                <div class="stat bg-orange fg-white">
+                    <div class="stat-titre">
+                        Matchs nuls à domidcile
+                    </div>
+                    <div class="stat-valeur">
+                        <div class="row no-gap">
+                            <div class="cell-6" style="border-right: 1px solid white">
+                                {{resultats.nulsDomiciles.length}}
+                                <div class="unite">
+                                    nuls
+                                </div>
+                            </div>
+                            <div class="cell-6">
+                                {{resultats.nulsDomiciles.length * 100 / resultats.nuls.length| number: '1.2-2'}}%
+                                <div class="unite">
+                                    pourcentage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell-2">
+                <div class="stat bg-orange fg-white">
+                    <div class="stat-titre">
+                        Matchs nuls à l'extérieur
+                    </div>
+                    <div class="stat-valeur">
+                        <div class="row no-gap">
+                            <div class="cell-6" style="border-right: 1px solid white">
+                                {{resultats.nulsExterieurs.length}}
+                                <div class="unite">
+                                    nuls
+                                </div>
+                            </div>
+                            <div class="cell-6">
+                                {{resultats.nulsExterieurs.length * 100 / resultats.nuls.length| number: '1.2-2'}}%
+                                <div class="unite">
+                                    pourcentage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell-2">
+                <div class="stat bg-red fg-white">
+                    <div class="stat-titre">
+                        Défaites à domicile
+                    </div>
+                    <div class="stat-valeur">
+                        <div class="row no-gap">
+                            <div class="cell-6" style="border-right: 1px solid white">
+                                {{resultats.defaitesDomiciles.length}}
+                                <div class="unite">
+                                    défaites
+                                </div>
+                            </div>
+                            <div class="cell-6">
+                                {{resultats.defaitesDomiciles.length * 100 / resultats.defaites.length| number:
+                                '1.2-2'}}%
+                                <div class="unite">
+                                    pourcentage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell-2">
+                <div class="stat bg-red fg-white">
+                    <div class="stat-titre">
+                        Défaites à l'extérieur
+                    </div>
+                    <div class="stat-valeur">
+                        <div class="row no-gap">
+                            <div class="cell-6" style="border-right: 1px solid white">
+                                {{resultats.defaitesExterieurs.length}}
+                                <div class="unite">
+                                    défaites
+                                </div>
+                            </div>
+                            <div class="cell-6">
+                                {{resultats.defaitesExterieurs.length * 100 / resultats.defaites.length| number:
+                                '1.2-2'}}%
+                                <div class="unite">
+                                    pourcentage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-buts">
+    <div data-role="dropdown" data-toggle-element="#dropdown_toggle_2">
+        <div class="row">
+            <div class="cell-6">
+                <div class="stat bg-green fg-white">
+                    <div class="stat-titre">
+                        Buts marqués
+                    </div>
+                    <div class="stat-valeur">
+                        <div class="row no-gap">
+                            <div class="cell-6" style="border-right: 1px solid white">
+                                {{resultats.butsMarques.length}}
+                                <div class="unite">
+                                    Buts
+                                </div>
+                            </div>
+                            <div class="cell-6">
+                                {{resultats.butsMarques.length / matchs.length| number: '1.2-2'}}
+                                <div class="unite">
+                                    buts marqués par match
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cell-6">
+                <div class="stat bg-red fg-white">
+                    <div class="stat-titre">
+                        Buts encaissés
+                    </div>
+                    <div class="stat-valeur">
+                        <div class="row no-gap">
+                            <div class="cell-6" style="border-right: 1px solid white">
+                                {{resultats.butsEncaisses.length}}
+                                <div class="unite">
+                                    Buts
+                                </div>
+                            </div>
+                            <div class="cell-6">
+                                {{resultats.butsEncaisses.length / matchs.length| number: '1.2-2'}}
+                                <div class="unite">
+                                    buts encaissés par match
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

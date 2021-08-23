@@ -1,97 +1,108 @@
 <div class="page">
-    <div class="titre">
-        Tableau de bord
-    </div>
-    <div class="sous-titre">
-        Informations récoltées
-    </div>
-    <div class="corps">
-        <div class="row">
-            <div class="cell-lg-3">
-                <div class="stat bg-magenta fg-white">
-                    <div class="stat-titre">
-                        Nombre
-                    </div>
-                    <div class="stat-valeur">
-                        {{matchs.length}}
-                        <div class="unite">
-                            matchs
-                        </div>
-                    </div>
-                    <div class="firebase">
-                        <div class="firebase-titre">
-                            {{matchsNonUploades.length - matchsUploadesEnCours}} matchs sur {{matchs.length}} non uploadés
-                        </div>
-                        <div class="firebase-buttons">
-                            <button (click)="uploaderMatchs()" class="button small">
-                                Sauvegarder
-                            </button>
-                            <button (click)="telechargerMatchs()" class="button small">
-                                Télécharger
-                            </button>
-                        </div>
-                        <div *ngIf="matchsTelechargesEnCours > 0">
-                            {{matchsTelechargesEnCours}} téléchargés
-                        </div>
-                    </div>
-                </div>
+  <div class="titre">
+    Tableau de bord
+  </div>
+  <div class="sous-titre">
+    Informations récoltées
+  </div>
+  <div class="corps">
+    <div class="row">
+      <div class="cell-lg-3">
+        <div class="stat bg-magenta fg-white">
+          <div class="stat-titre">
+            Nombre
+          </div>
+          <div class="stat-valeur">
+            {{matchs.length}}
+            <div class="unite">
+              matchs
             </div>
-            <div class="cell-lg-3">
-                <div class="stat bg-green fg-white">
-                    <div class="stat-titre">
-                        Nombre
-                    </div>
-                    <div class="stat-valeur">
-                        {{competitionsEditions.length}}
-                        <div class="unite">
-                            éditions de compétitions
-                        </div>
-                    </div>
-                    <div class="firebase">
-                        <div class="firebase-titre">
-                            {{competitionsEditionsNonUploades.length - competitionEditionsUploadesEnCours}}
-                            éditions de compétitions sur {{competitionsEditions.length}} non uploadés
-                        </div>
-                        <div class="firebase-buttons">
-                            <button (click)="uploaderCompetitions()" class="button small">
-                                Sauvegarder
-                            </button>
-                            <button (click)="telechargerCompetitions()" class="button small">
-                                Télécharger
-                            </button>
-                        </div>
-                        <div *ngIf="matchsTelechargesEnCours > 0">
-                            {{matchsTelechargesEnCours}} téléchargés
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="firebase">
+            <div class="firebase-titre">
+              {{matchsNonUploades.length - matchsUploadesEnCours}} matchs sur {{matchs.length}} non
+              uploadés
             </div>
-            <div class="cell-lg-3">
-                <div class="stat bg-orange fg-white">
-                    <div class="stat-titre">
-                        Nombre
-                    </div>
-                    <div class="stat-valeur">
-                        {{matchs.length}}
-                        <div class="unite">
-                            Editions de compétitions
-                        </div>
-                    </div>
-                </div>
+            <div class="firebase-buttons">
+              <button (click)="uploaderMatchs()" class="button small">
+                Sauvegarder
+              </button>
+              <button (click)="telechargerMatchs()" class="button small">
+                Télécharger
+              </button>
             </div>
-            <div class="cell-lg-3">
-                <div class="stat bg-blue fg-white">
-                    <div class="stat-titre">
-                        Nombre
-                    </div>
-                    <div class="stat-valeur">
-                        {{matchs.length}}
-                        <div class="unite">
-                            Compétitions
-                        </div>
-                    </div>
-                </div>
+            <div *ngIf="matchsTelechargesEnCours > 0">
+              {{matchsTelechargesEnCours}} téléchargés
             </div>
+          </div>
         </div>
+      </div>
+      <div class="cell-lg-3">
+        <div class="stat bg-green fg-white">
+          <div class="stat-titre">
+            Nombre
+          </div>
+          <div class="stat-valeur">
+            {{competitionsEditions.length}}
+            <div class="unite">
+              éditions de compétitions
+            </div>
+          </div>
+          <div class="firebase">
+            <div class="firebase-titre">
+              {{competitionsEditionsNonUploades.length - competitionEditionsUploadesEnCours}}
+              éditions de compétitions sur {{competitionsEditions.length}} non uploadés
+            </div>
+            <div class="firebase-buttons">
+              <button (click)="uploaderCompetitions()" class="button small">
+                Sauvegarder
+              </button>
+              <button (click)="telechargerCompetitions()" class="button small">
+                Télécharger
+              </button>
+            </div>
+            <div *ngIf="matchsTelechargesEnCours > 0">
+              {{matchsTelechargesEnCours}} téléchargés
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cell-lg-3">
+        <div class="stat bg-orange fg-white">
+          <div class="stat-titre">
+            Nombre
+          </div>
+          <div class="stat-valeur">
+            {{matchs.length}}
+            <div class="unite">
+              Editions de compétitions
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cell-lg-3">
+        <div class="stat bg-blue fg-white">
+          <div class="stat-titre">
+            Nombre
+          </div>
+          <div class="stat-valeur">
+            {{matchs.length}}
+            <div class="unite">
+              Compétitions
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="corps">
+    <div class="row">
+      <div class="cell-lg-2" *ngFor="let enchainement of enchainements">
+        <div class="enchainement" >
+          {{enchainement.enchainement}}
+          {{enchainement.occurence}}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

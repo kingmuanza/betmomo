@@ -6,6 +6,7 @@ import { Match } from 'src/app/models/match.model';
 import { CompetitionEditionService } from 'src/app/services/competition-edition.service';
 import { CompetitionService } from 'src/app/services/competition.service';
 import { MatchService } from 'src/app/services/match.service';
+import { PrevisionService } from 'src/app/services/prevision.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,9 +31,12 @@ export class DashboardComponent implements OnInit {
   competitionEditionsTelechargesEnCours = 0;
   nombreCompetitionEditionsTelechargesSubscription = new Subscription();
 
+  enchainements = new Array<any>();
+
   constructor(
     private matchService: MatchService,
     private competitionService: CompetitionService,
+    private previsionService: PrevisionService,
     private competitionEditionService: CompetitionEditionService,
   ) { }
 
@@ -54,6 +58,7 @@ export class DashboardComponent implements OnInit {
   getMatchs() {
     this.matchService.getAll().then((matchs) => {
       this.matchs = matchs;
+      this.enchainements = this.previsionService.getScenarios(matchs);
       this.matchs.forEach((match) => {
         if (!match.saveOnFirebase) {
           this.matchsNonUploades.push(match);

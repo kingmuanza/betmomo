@@ -50,7 +50,7 @@ export class PrevisionService {
 
   calculer(matchs: Array<Match>) {
     this.init();
-  
+
     matchs.forEach((match) => {
       // Voictoire défaite
       if (match.domicileScore > match.exterieurScore) {
@@ -131,42 +131,87 @@ export class PrevisionService {
     this.victoireDomicile = 0;
     this.defaiteDomicile = 0;
     this.nulDomicile = 0;
-  
+
     this.plus00 = 0
     this.plus05 = 0;
     this.plus15 = 0;
     this.plus25 = 0;
     this.plus35 = 0;
     this.plus45 = 0;
-  
+
     this.plus00domicile = 0;
     this.plus05domicile = 0;
     this.plus15domicile = 0;
     this.plus25domicile = 0;
     this.plus35domicile = 0;
     this.plus45domicile = 0;
-  
+
     this.plus00exterieur = 0
     this.plus05exterieur = 0;
     this.plus15exterieur = 0;
     this.plus25exterieur = 0;
     this.plus35exterieur = 0;
     this.plus45exterieur = 0;
-  
+
     this.plus00premiereMitemps = 0
     this.plus05premiereMitemps = 0;
     this.plus15premiereMitemps = 0;
     this.plus25premiereMitemps = 0;
     this.plus35premiereMitemps = 0;
     this.plus45premiereMitemps = 0;
-  
+
     this.plus00secondeMitemps = 0
     this.plus05secondeMitemps = 0;
     this.plus15secondeMitemps = 0;
     this.plus25secondeMitemps = 0;
     this.plus35secondeMitemps = 0;
     this.plus45secondeMitemps = 0;
-  
-  
+
   }
+
+  getScenarios(matchs: Array<Match>) {
+    const enchainements = new Array<string>();
+    matchs.sort((a, b) => {
+      if (a.enchainement.length === b.enchainement.length) {
+        return a.enchainement < b.enchainement ? -1 : 1;
+      }
+      return a.enchainement.length < b.enchainement.length ? -1 : 1;
+    });
+    matchs.forEach((match) => {
+      enchainements.push(match.enchainement);
+    });
+    return this.getOccurence(enchainements);
+  }
+
+  getOccurence(enchainements: Array<string>) {
+
+    const occurences = [];
+
+    let a = [],
+      b = [],
+      arr = [...enchainements], // clone array so we don't change the original when using .sort()
+      prev;
+
+    arr.sort();
+    for (let element of arr) {
+      if (element !== prev) {
+        a.push(element);
+        b.push(1);
+      }
+      else ++b[b.length - 1];
+      prev = element;
+    }
+
+    for( let i = 0; i < a.length; i++) {
+      occurences.push({
+        enchainement: a[i],
+        occurence: b[i]
+      })
+    }
+
+    return occurences.sort((a,b) => {
+      return a.occurence > b.occurence ? -1: 1
+    });
+  }
+
 }
